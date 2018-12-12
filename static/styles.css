@@ -1,0 +1,25 @@
+/* credits to https://speckyboy.com/css-background-effects/ */
+/* vine.jpg credits to google images */
+body {
+     background-image: url("/static/images/vine.jpg");
+   padding: 0px;
+   margin-right: 0px;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   margin-left:0px;
+ }
+
+#gradient
+{
+  width: 100%;
+  height: 3465px;
+  padding: 0px;
+  margin: 0px;
+}
+
+#emphasize
+{
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}

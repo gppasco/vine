@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- https://favicon.io/emoji-favicons/money-mouth-face/ -->
+        <link href="/static/favicon.ico" rel="icon">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <title>Personality Quiz: {% block title %}{% endblock %}</title>
+
+    </head>
+    <nav class="navbar navbar-expand-md navbar-light bg-light border">
+        <a class="navbar-brand" href="/"><span class="blue">C</span><span class="red">S</span><span class="yellow">5</span><span class="green">0</span> <span class="red">Final Project</span></a>
+    </nav>
+
+    <headbar>
+        <!--all gifs credits are given to tenor.com and giphy.com -->
+        <img src= "/static/images/lyin.gif" alt= "Why You Always Lyin" style= "width:10%;">
+        <img src= "/static/images/takeonme.gif" alt= "Take On Me" style= "width:10%;">
+        <img src= "/static/images/idon'tcare.gif" alt= "I Don't Care" style= "width:10%;">
+        <img src= "/static/images/tallpeople.gif" alt= "Tall People" style= "width:10%;">
+        <img src= "/static/images/Arkansas.gif" alt= "America Explain" style= "width:10%;">
+        <img src= "/static/images/math.gif" alt= "Math" style= "width:10%;">
+        <img src= "/static/images/dance.gif" alt= "Magic Johnson" style= "width:10%;">
+        <img src= "/static/images/groove.gif" alt= "Soulja Boi" style= "width:13%;">
+        <img src= "/static/images/watermelon.gif" alt= "Watermelon" style= "width:13%;">
+    </headbar>
+
+    <body>
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary border text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        <main class="container p-5">
+            {% block main %}{% endblock %}
+        </main>
+    </body>
+
+    <headbar>
+        <!--all gifs credits are given to tenor.com and giphy.com -->
+        <img src= "/static/images/lyin.gif" alt= "Why You Always Lyin" style= "width:10%;">
+        <img src= "/static/images/takeonme.gif" alt= "Take On Me" style= "width:10%;">
+        <img src= "/static/images/idon'tcare.gif" alt= "I Don't Care" style= "width:10%;">
+        <img src= "/static/images/tallpeople.gif" alt= "Tall People" style= "width:10%;">
+        <img src= "/static/images/Arkansas.gif" alt= "America Explain" style= "width:10%;">
+        <img src= "/static/images/math.gif" alt= "Math" style= "width:10%;">
+        <img src= "/static/images/dance.gif" alt= "Magic Johnson" style= "width:10%;">
+        <img src= "/static/images/groove.gif" alt= "Soulja Boi" style= "width:13%;">
+        <img src= "/static/images/watermelon.gif" alt= "Watermelon" style= "width:13%;">
+    </headbar>
+
+    <footer class="small text-center" id="emphasize">
+        Project by Aaron Hai and Paolo Pasco. All Vines belong to their respective creators. On that note, RIP Vine.
+    </footer>
+
+</html>

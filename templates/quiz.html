@@ -1,0 +1,262 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- https://www.quackit.com/html/html_editors/scratchpad/?example=/html/codes/html_borders_grooved_border-->
+    <style>
+      .bordered {
+        width: 1000px;
+        height: 3500px;
+        border: 20px groove yellowgreen;
+      }
+    </style>
+
+    <div class="bordered">
+    <!--https://speckyboy.com/css-background-effects/-->
+        <div id="gradient"/>
+        <script>
+                        var colors = new Array(
+              [62,35,255],
+              [60,255,60],
+              [255,35,98],
+              [45,175,230],
+              [255,0,255],
+              [255,128,0]);
+
+            var step = 0;
+            //color table indices for:
+            // current color left
+            // next color left
+            // current color right
+            // next color right
+            var colorIndices = [0,1,2,3];
+
+            //transition speed
+            var gradientSpeed = 0.0002;
+
+            function updateGradient()
+            {
+
+              if ( $===undefined ) return;
+
+            var c0_0 = colors[colorIndices[0]];
+            var c0_1 = colors[colorIndices[1]];
+            var c1_0 = colors[colorIndices[2]];
+            var c1_1 = colors[colorIndices[3]];
+
+            var istep = 1 - step;
+            var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+            var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+            var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+            var color1 = "rgb("+r1+","+g1+","+b1+")";
+
+            var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+            var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+            var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+            var color2 = "rgb("+r2+","+g2+","+b2+")";
+
+             $('#gradient').css({
+               background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+                background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+
+              step += gradientSpeed;
+              if ( step >= 1 )
+              {
+                step %= 1;
+                colorIndices[0] = colorIndices[1];
+                colorIndices[2] = colorIndices[3];
+
+                //pick two new target color indices
+                //do not pick the same as the current one
+                colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+                colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+
+              }
+            }
+
+            setInterval(updateGradient,10);
+        </script>
+
+
+
+
+    <center><h1 class="mb-3">What Vine Are You? Take the Quiz!</h1></center>
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post">
+        <!-- One <div> tag for each question -->
+        <p1><div id = "0">
+            <h4><center>1.) Who's your favorite superhero?</center></h4></p1>
+            <!--all image credits go to their respective owners from Google images. Collages were made with the help of collagemaker websites-->
+            <!-- "i" for introvert, "e" for extrovert -->
+        <p2><center><img src="/static/images/question1.jpg" alt="Superheroes" style="width:30%;height:50%;"></center>
+            <center><input type="radio" name="q1" value="i"> Black Panther</input></center> <br>
+            <center><input type="radio" name="q1" value="i"> Iron Man</input></center><br>
+            <center><input type="radio" name="q1" value="e"> Wonder Woman</input></center><br>
+            <center><input type="radio" name="q1" value="e"> Shazam</input></center>
+        </p2>
+        </div><br><br>
+
+        <div id = "1">
+            <h4><center>2.) You just got to a party. What's the first thing you do?</center></h4>
+            <center><input type="radio" name="q2" value="i"> Head for the food</input></center><br>
+            <img src= "/static/images/friends.gif" alt= "Friends" style= "width:20%;height:30%;"align="left">
+            <img src= "/static/images/kirby.gif" alt= "Kirby" style= "width:25%;height:80%;" align= "right">
+            <center><input type="radio" name="q2" value="e"> Look for your friends</input></center><br>
+            <center><input type="radio" name="q2" value="e"> Call your girlfriend</input></center><br>
+            <center><input type="radio" name="q2" value="i"> Sike you're single ;-;</input></center>
+
+        </div><br><br>
+
+        <div id = "2">
+            <h4><center>3.) You’re stuck in an elevator with a stranger and it breaks down. What do you do?</center></h4>
+            <center><input type="radio" name="q3" value="e"> Talk to the stranger to work together to figure things out</input></center> <br>
+            <center><input type="radio" name="q3" value="i"> Continue to stare awkwardly at your phone </input></center><br>
+            <center><input type="radio" name="q3" value="i"> Cry for your mom</input></center><br>
+            <center><input type="radio" name="q3" value="e"> Climb on the stranger’s shoulders to look for an escape hatch</input></center>
+        </div><br><br>
+
+        <div id = "3">
+            <h4><center>4.) What breakfast food do you prefer?</center></h4>
+            <center><img src= "/static/images/breakfast.jpg" alt= "Breakfast" style= "width:30%;height:50%;"></center>
+            <center><input type="radio" name="q4" value="Croissant"> Croissant</input></center> <br>
+            <center><input type="radio" name="q4" value="Bacon"> Bacon</input></center><br>
+            <center><input type="radio" name="q4" value="Waffles"> Waffles</input></center><br>
+            <center><input type="radio" name="q4" value="Eggs"> Eggs</input></center>
+        </div><br><br>
+
+        <div id = "4">
+            <h4><center>5.) If you’re playing a game of Cards Against Humanity and the black card reads “50% of all marriages end in  ____”, what would your answer be?</center></h4>
+            <center><input type="radio" name="q5" value="cut"> Grave robbing</input></center> <br>
+            <center><input type="radio" name="q5" value="pickup"> Vigorous Jazz Hands</input></center></br>
+            <center><input type="radio" name="q5" value="pickup"> The Cool Refreshing Taste of Pepsi</input></center><br>
+            <center><input type="radio" name="q5" value="cut"> The Heat Death of the Universe</input></center>
+        </div><br><br>
+
+        <div id = "5">
+            <h4><center>6.) You’re doing a lip sync battle, what’s your song?</center></h4>
+            <img src= "/static/images/music1.jpg" alt="music" style= "width:30%;height:20%;" align= "left">
+            <img src= "/static/images/music2.jpg" alt="music" style= "width:30%;height:20%;" align="right">
+            <center><input type="radio" name="q6" value="bump"> Take On Me by A-ha</input></center> <br>
+            <center><input type="radio" name="q6" value="lyrics"> Monster by Kanye West</input></center><br>
+            <center><input type="radio" name="q6" value="lyrics"> How Low by Ludacris</input></center><br>
+            <center><input type="radio" name="q6" value="bump"> Thank u, Next by Ariana Grande</input></center>
+        </div><br><br>
+
+        <div id = "6">
+            <h4><center>7.) Someone cuts in front of you in line. How do you react?</center></h4>
+            <center><input type="radio" name="q7" value="sensitive"> Get your dad to go talk to them</input></center> <br>
+            <center><input type="radio" name="q7" value="croissant"> Approach them, chicken out last second, and don’t do anything</input></center><br>
+            <center><input type="radio" name="q7" value="sensitive"> Confront them right there. Get in their face and yell at them</input></center><br>
+            <center><input type="radio" name="q7" value="croissant"> Just let them (but sulk internally)</input></center>
+        </div><br><br>
+
+        <div id = "7">
+            <h4><center>8.) What’s your go-to pick up line?</center></h4>
+            <center><input type="radio" name="q8" value="road"> Are you French? Because maDAMN</input></center> <br>
+            <center><input type="radio" name="q8" value="evening"> You’re like Cheetos. You’re flamin and my body aches for you</input></center><br>
+            <center><input type="radio" name="q8" value="road"> Hey my name’s Microsoft. Can I crash at your place tonight?</input></center><br>
+            <center><input type="radio" name="q8" value="evening"> I’m so good at math, I can steal your x before you even know y</input></center>
+        </div><br><br>
+
+        <div id = "8">
+            <h4><center>9.) If someone intentionally bumps you in the street and obviously have biceps of a bodybuilder what do you do?</center></h4>
+            <center><input type="radio" name="q9" value="nicest"> They finna catch these hands, that's what</input></center> <br>
+            <center><input type="radio" name="q9" value="kb"> Yell 'swing first bro' and proceed to get the daylights socked outta you</input></center><br>
+            <center><input type="radio" name="q9" value="kb"> Act all tough and then the moment he takes a step forward, you book it</input></center><br>
+            <center><input type="radio" name="q9" value="nicest"> Proceed to taunt him and then drag your friend in front of you as a shield</input></center>
+        </div><br><br>
+
+        <div id = "9">
+            <h4><center>10.) Someone sings one of your favorite songs but has some of the lyrics completely wrong. What do you do?</center></h4>
+            <center><input type="radio" name="q10" value="be me"> It's all good, jam to it anyway</input></center> <br>
+            <center><input type="radio" name="q10" value="kansas"> STOP THE MUSIC STOP THE MUSIC</input></center><br>
+            <center><input type="radio" name="q10" value="kansas"> Question why you're even friends with that person</input></center><br>
+            <center><input type="radio" name="q10" value="be me"> Start pulling out those dance moves you've secretly been working on</input></center>
+            <br><br>
+        </div><br><br>
+
+
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <center><button class="btn btn-primary" type="submit" onclick>Find that Vine!</button></center>
+        </div>
+
+    </form>
+
+    <script>
+        // Javascript, so that users can't submit without putting in all answers
+        var answers = document.getElementsByTagName('input');
+        for (var i = 0; i < answers.length; i++)
+        {
+            // Event listeners for each question trigger
+            answers[i].addEventListener('click', count);
+        }
+        // function that returns the number of questions answered
+        function count() {
+            var count = 0;
+            for (var i = 0; i < answers.length; i++)
+            {
+                if (answers[i].checked)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+        // displays an alert if any questions are left unanswered
+        document.querySelector('form').onsubmit = function(event)
+        {
+            if (count() != 10)
+            {
+                var disp = 10 - count();
+                alert("You still have " + disp + " questions left unanswered!");
+                event.preventDefault();
+                check();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        };
+        // function to go through the questions, see which ones are unanswered, and highlight those questions in pink
+        function check()
+        {
+            //
+            // array for storing checked questions, and array for storing unchecked questions
+            var checked = [];
+            var unchecked = [];
+            // iterates through each of the four answer choices in each div tag (representing a question)
+            for (var i = 0; i < answers.length; i+=4)
+            {
+                // if at least one of the answers in the tag is checked, add the question number to the "checked" array
+                if (answers[i].checked || answers[i+1].checked || answers[i+2].checked || answers[i+3].checked)
+                {
+                    checked.push(Math.floor(i/4));
+                }
+                // if not, add it to the "unchecked" array
+                else
+                {
+                    unchecked.push(Math.floor(i/4));
+                }
+            }
+            // iterates through each of the questions
+            for (var j = 0; j < 10; j++)
+            {
+                // if the question is marked as unchecked, the background for that question becomes red
+                if (unchecked.includes(j))
+                {
+                    document.getElementById(j.toString()).style.backgroundColor = '#ffb3b3';
+                }
+                // if not, the background becomes white
+                else
+                {
+                    document.getElementById(j.toString()).style.backgroundColor = 'transparent';
+                }
+            }
+        }
+
+    </script>
+
+{% endblock %}

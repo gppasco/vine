@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div id="emphasize">
+    <center><h3>You got...</h3></center>
+    <!--- INSERT VINE NAME/EMBED/DESCRIPTION HERE-->
+    <!-- all vines belong to their respective owners, credits to Youtube-->
+    <center><h3>{{title}}</h3></center>
+    </div>
+    <center><iframe width="560" height="315" src="https://www.youtube.com/embed/{{ url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+    <br> <br>
+    <div id="emphasize">
+        {{ description }}
+    <br> <br>
+    <h6> Share your result!</h6>
+    </div>
+    <!-- Social media tag -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <a class="twitter-share-button"
+    href="https://twitter.com/intent/tweet?text=My%20spirit%20Vine%20is%3A%20{{title}}%20https://www.youtube.com/watch%3Fv%3D{{url}}%20Thanks,%20Aaron%20and%20Paolo.%20Take%20the%20quiz%20yourself%20at%3A">
+    Tweet</a>
+{% endblock %}
